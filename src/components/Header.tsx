@@ -1,3 +1,10 @@
-const Header: React.FC = () => <h1>This is Header!</h1>;
+import { Heading } from "@chakra-ui/layout";
+import { headerWrapperStyles } from "@/styles/header";
 
-export default Header;
+export const Header: React.FC = () => {
+  return (
+    <header css={headerWrapperStyles}>
+      <Heading>雑記</Heading>
+    </header>
+  );
+};

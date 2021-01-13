@@ -1,13 +1,19 @@
 import type { AppProps } from "next/app";
-import "../styles/globals.css";
-import Header from "@/components/Header";
+import { ChakraProvider } from "@chakra-ui/react";
+import { Header } from "@/components/Header";
+import { MainLayout } from "@/components/MainLayout";
+import { ContentLayout } from "@/components/ContentLayout";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <div className="main">
+    <ChakraProvider>
       <Header />
-      <Component {...pageProps} />
-    </div>
+      <MainLayout>
+        <ContentLayout>
+          <Component {...pageProps} />
+        </ContentLayout>
+      </MainLayout>
+    </ChakraProvider>
   );
 };
 

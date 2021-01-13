@@ -15,9 +15,21 @@ parserOptions:
 settings:
   react:
     version: "detect"
+  "import/resolver":
+    node:
+      extensions:
+        - ".js"
+        - ".jsx"
+        - ".ts"
+        - ".tsx"
+        - ".json"
+    typescript:
+      config: "tsconfig.json"
+      alwaysTryTypes: true
 plugins:
   - "@typescript-eslint"
   - "react"
+  - "import"
 rules:
   "react/prop-types": "off"
   "react/react-in-jsx-scope": "off"
