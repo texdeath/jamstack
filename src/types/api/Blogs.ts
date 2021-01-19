@@ -5,9 +5,13 @@ export type Blogs = {
   contents: Blog[];
 };
 
-type Blog = {
+export type Blog = {
   id: string;
   title: string;
+  content: string;
+  thumbnail: { url: string };
+  createdAt: string;
+  updatedAt?: string;
 };
 
 export type ContentPageStaticProps = {
