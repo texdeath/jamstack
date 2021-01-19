@@ -5,7 +5,9 @@ const Home = ({ blogs }: ContentPageStaticProps) => {
   return (
     <div>
       {blogs.map((blog) => (
-        <p>{blog.title}</p>
+        <div key={blog.id}>
+          <p>{blog.title}</p>
+        </div>
       ))}
     </div>
   );
@@ -13,12 +15,9 @@ const Home = ({ blogs }: ContentPageStaticProps) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const key = {
-    headers: { "X-API-KEY": "7c9cd8b7-5b08-4e3e-870d-1f40e0a2b7e3" },
+    headers: { "X-API-KEY": process.env.API_KEY ?? "" },
   };
-  const data: Blogs = await fetch(
-    "https://texdeath.microcms.io/api/v1/blogs",
-    key
-  )
+  const data: Blogs = await fetch(`${process.env.CMS_API_URL}/blogs`, key)
     .then((res) => res.json())
     .catch(() => null);
   return {
