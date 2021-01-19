@@ -1,7 +1,28 @@
 import { Box } from "@chakra-ui/layout";
+import { cardStyleOptions } from "@/styles/card";
+
+/**
+ * 記事一覧を表示するカードコンポーネントです。
+ * @param children
+ */
 export const Card: React.FC = ({ children }) => {
+  const {
+    width,
+    borderRadius,
+    borderWidth,
+    marginBottom,
+    maxHeight,
+    overflow,
+  } = cardStyleOptions;
   return (
-    <Box w="100%" maxHeight="420px" borderWidth="1px" borderRadius="lg" overflow="hidden">
+    <Box
+      w={width}
+      maxHeight={maxHeight}
+      borderWidth={borderWidth}
+      borderRadius={borderRadius}
+      overflow={overflow}
+      marginBottom={marginBottom}
+    >
       {children}
     </Box>
   );

@@ -5,9 +5,14 @@ import { convertLocale } from "@/utils/convertLocale";
 import { Card } from "@/components/Card";
 import { homeStyle } from "@/styles/home";
 import { Img, Box } from "@chakra-ui/react";
+import { abridgementString } from "@/utils/abridgementString";
 
+/**
+ * トップ階層アクセス時に表示されるコンポーネントです。
+ * @param blogs:ブログのAPIデータ
+ * /api/v1/blogs
+ */
 const Home = ({ blogs }: ContentPageStaticProps) => {
-  console.log(blogs);
   return (
     <div>
       {blogs.map((blog) => (
@@ -17,13 +22,12 @@ const Home = ({ blogs }: ContentPageStaticProps) => {
               <Img loading="lazy" src={blog.thumbnail.url} alt={blog.title} />
               <Box p="6">
                 <h3>{blog.title}</h3>
-                <div
-                  css={homeStyle.content}
-                  dangerouslySetInnerHTML={{ __html: blog.content }}
-                />
+                <p css={homeStyle.description}>
+                  {abridgementString(blog.description)}
+                </p>
                 <div css={homeStyle.time}>
                   <small>
-                    {convertLocale(blog.updatedAt) ??
+                    更新日：{convertLocale(blog.updatedAt) ??
                       convertLocale(blog.createdAt)}
                   </small>
                 </div>
@@ -36,18 +40,23 @@ const Home = ({ blogs }: ContentPageStaticProps) => {
   );
 };
 
+/**
+ * トップページに表示するブログ記事一覧を取得します。
+ * ビルド時にデータをフェッチします。
+ */
 export const getStaticProps: GetStaticProps = async () => {
   const key = {
     headers: { "X-API-KEY": process.env.API_KEY ?? "" },
   };
-  const data: Blogs = await fetch(`${process.env.CMS_API_URL}/blogs`, key)
+  const fetchData: Blogs = await fetch(`${process.env.CMS_API_URL}/blogs`, key)
     .then((res) => res.json())
     .catch((error) => {
       throw new Error(error);
     });
+  const { contents } = fetchData;
   return {
     props: {
-      blogs: data.contents,
+      blogs: contents,
     },
   };
 };

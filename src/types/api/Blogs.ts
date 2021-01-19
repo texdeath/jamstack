@@ -12,6 +12,7 @@ export type Blog = {
   thumbnail: { url: string };
   createdAt: string;
   updatedAt?: string;
+  description: string;
 };
 
 export type ContentPageStaticProps = {

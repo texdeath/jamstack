@@ -1,5 +1,8 @@
 import { useRouter } from "next/router";
 
+/**
+ * 実績を表示するコンポーネントです。
+ */
 const Work = () => {
   const router = useRouter();
   const { workId } = router.query;

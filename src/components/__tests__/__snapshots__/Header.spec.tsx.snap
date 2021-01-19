@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header 1`] = `
+Array [
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".css-16whxhv-Header{-webkit-transition:box-shadow 0.2s;transition:box-shadow 0.2s;position:fixed;top:0;z-index:1;background:#ffffff;left:0;right:0;width:100%;border-bottom:1px solid #dddddd;padding:0.25rem;}",
+      }
+    }
+    data-emotion="css 16whxhv-Header"
+  />,
+  <header
+    className="css-16whxhv-Header"
+  >
+    <h2>
+      <style
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": ".css-148zqqe-Header{cursor:pointer;padding:0 1em;-webkit-text-decoration:none;text-decoration:none;}",
+          }
+        }
+        data-emotion="css 148zqqe-Header"
+      />
+      <a
+        className="css-148zqqe-Header"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        雑記
+      </a>
+    </h2>
+  </header>,
+]
+`;
