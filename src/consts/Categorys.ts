@@ -1,0 +1,17 @@
+export const categorys = [
+  "TypeScript",
+  "JavaScript",
+  "HTML",
+  "CSS",
+  "Node.js",
+  "React",
+  "Redux",
+  "Vue.js",
+  "Firebase",
+  "Cloud Function",
+  "FireStore",
+  "AWS Lambda",
+  "AWS DynamoDB",
+  "AWS API Gateway",
+  "他",
+];

@@ -1,5 +1,6 @@
+import React from "react";
 import { Box } from "@chakra-ui/layout";
-import { cardStyleOptions } from "@/styles/card";
+import { cardStyleOptions } from "@/styles/modules/card";
 
 /**
  * 記事一覧を表示するカードコンポーネントです。
